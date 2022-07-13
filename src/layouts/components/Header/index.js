@@ -1,5 +1,6 @@
 import className from 'classnames/bind';
 import styles from './Header.module.scss';
+import config from '~/config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import images from '~/assets/images';
@@ -20,9 +21,10 @@ import {
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 
-import Menu from '../../Popper/Menu';
+import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Images';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
 const cx = className.bind(styles);
 
 function Header() {
@@ -87,7 +89,10 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link to={config.routes.home} className={cx('logo-link')}>
+                        {' '}
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
                 <Search />
 
